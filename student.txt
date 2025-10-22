@@ -1,0 +1,3 @@
+Name|City|Roll|Contact
+bist|wellington|0b2i|0204343564
+pooja bist|auckland|2p3o|234588

@@ -10,13 +10,19 @@
 
 using namespace std;
 
-bool writeTxtFile(
+bool writeFile(
     const string& filename,
-    const vector<vector<string>>& data
+    const vector<vector<string>>& data,
+    bool append = true
 ) {
     ofstream outputFile;
 
-    outputFile.open(filename, ios::out | ios::app);
+    if (append) {
+        outputFile.open(filename, ios::out | ios::app);
+    }
+    else {
+        outputFile.open(filename, ios::out | ios::trunc); // overwrite
+    }
 
     if (outputFile.is_open()) {
         for (const auto& row : data) {
@@ -35,7 +41,7 @@ bool writeTxtFile(
         return false;
 }
 
-vector<vector<string>> readTxtFile(const string& filename, int colNumber = -1, const string& colValue = "") {
+vector<vector<string>> readFile(const string& filename, int colNumber = -1, const string& colValue = "") {
     vector<vector<string>> data;
 
     ifstream inputFile(filename);
@@ -58,6 +64,64 @@ vector<vector<string>> readTxtFile(const string& filename, int colNumber = -1, c
         }
     }
     return data;
+}
+
+bool updateFile(
+    const string& filename,
+    size_t matchColumnIndex,
+    const string& matchValue,
+    const vector<string>& newRow
+) {
+    auto data = readFile(filename);
+    bool found = false;
+
+    for (auto& row : data) {
+        if (row.size() > matchColumnIndex && row[matchColumnIndex] == matchValue) {
+            if (row.size() < newRow.size()) {
+                row.resize(newRow.size()); 
+            }
+
+            for (size_t i = 0; i < newRow.size(); ++i) {
+                if (newRow[i] != "")
+                    row[i] = newRow[i]; 
+            }
+
+            found = true;
+            break;
+        }
+    }
+
+    if (found) {
+        return writeFile(filename, data, false); 
+    }
+    else {
+        return false;
+    }
+}
+
+bool deleteRowFile(
+    const string& filename,
+    size_t matchColumnIndex,
+    const string& matchValue
+) {
+    auto data = readFile(filename);
+    bool found = false;
+    vector<vector<string>> updatedData;
+
+    for (const auto& row : data) {
+        if (row.size() > matchColumnIndex && row[matchColumnIndex] == matchValue) {
+            found = true; // skip this row
+            continue;
+        }
+        updatedData.push_back(row);
+    }
+
+    if (found) {
+        return writeFile(filename, updatedData, false);
+    }
+    else {
+        return false;
+    }
 }
 
 void printTable(const vector<vector<string>>& data) {
@@ -117,11 +181,35 @@ public:
     }
 
     void edit() {
+		cout << "Enter student roll to edit: ";
+		getline(cin, roll);
 
+        cout << "Name: ";
+        getline(cin, name);
+
+        cout << "Address: ";
+        getline(cin, address);
+
+        cout << "Contact: ";
+        getline(cin, contact);
+
+        if (updateTxtFile("student.txt", 2, roll, { name, address, "", contact })) {
+			cout << "Student info updated successfully." << endl;
+		}
+		else
+			cout << "Process failed." << endl;  
     }
 
     void del() {
+        cout << "Enter student roll to edit: ";
+        getline(cin, roll);
 
+		if (deleteRowTxtFile("student.txt", 2, roll)) {
+			cout << "Student deleted successfully." << endl;
+		}
+		else {
+			cout << "Process failed." << endl;
+		}
     }
 };
 

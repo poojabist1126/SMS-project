@@ -24,9 +24,13 @@
     <ClCompile Include="Functions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CourseClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="student.txt" />
+    <Text Include="course.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StudentClass.hpp">

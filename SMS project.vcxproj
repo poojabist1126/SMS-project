@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CourseClass.cpp" />
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="SMS project.cpp" />
     <ClCompile Include="StudentClass.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="course.txt" />
     <Text Include="student.txt" />
   </ItemGroup>
   <ItemGroup>

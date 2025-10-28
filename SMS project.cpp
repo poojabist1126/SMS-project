@@ -12,9 +12,40 @@
 
 using namespace std;
 
+class Course {
+private:
+    string courseCode;
+    string title;
+    string descp;
+    string teacher;
+
+public:
+    void add() {
+        cout << "Enter Course Code: ";
+        getline(cin, courseCode);
+
+        cout << "Enter Title: ";
+        getline(cin, title);
+
+        cout << "Enter Description: ";
+        getline(cin, descp);
+
+        cout << "Enter Assigned Teacher: ";
+        getline(cin, teacher);
+            
+        if (writeFile("course.txt", { {courseCode, title, descp, teacher} })) {
+            cout << "New course added successfully." << endl;
+        }
+        else {
+            cout << "Process failed." << endl;
+        }
+    }
+};
+
 int main()
 {
     Student s;
+    Course c;
     string commands;
 
     while (true) {
@@ -32,6 +63,9 @@ int main()
         }
         else if (commands == "del student") {
             s.del();
+        }
+        else if (commands == "add course") {
+            c.add();
         }
     }
 }

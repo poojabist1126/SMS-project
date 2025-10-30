@@ -4,7 +4,7 @@
 bool writeFile(
 	const std::string& filename,
 	const std::vector<std::vector<std::string>>& data,
-	bool append = false
+	bool append = true
 );
 
 std::vector<std::vector<std::string>> readFile(const std::string& filename, int colNumber = -1, const std::string& colValue = "");

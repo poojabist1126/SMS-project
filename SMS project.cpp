@@ -8,39 +8,12 @@
 #include <sstream>
 #include <iomanip>
 #include "StudentClass.hpp"
+#include "CourseClass.hpp"
 #include "Functions.hpp"
 
 using namespace std;
 
-class Course {
-private:
-    string courseCode;
-    string title;
-    string descp;
-    string teacher;
 
-public:
-    void add() {
-        cout << "Enter Course Code: ";
-        getline(cin, courseCode);
-
-        cout << "Enter Title: ";
-        getline(cin, title);
-
-        cout << "Enter Description: ";
-        getline(cin, descp);
-
-        cout << "Enter Assigned Teacher: ";
-        getline(cin, teacher);
-            
-        if (writeFile("course.txt", { {courseCode, title, descp, teacher} })) {
-            cout << "New course added successfully." << endl;
-        }
-        else {
-            cout << "Process failed." << endl;
-        }
-    }
-};
 
 int main()
 {
@@ -66,6 +39,15 @@ int main()
         }
         else if (commands == "add course") {
             c.add();
+        }
+        else if (commands == "view course") {
+            c.view();
+        }
+        else if (commands == "edit course") {
+            c.edit();
+        }
+        else if (commands == "del course") {
+            c.del();
         }
     }
 }

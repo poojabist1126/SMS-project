@@ -25,6 +25,8 @@ void Student::add() {
         cout << "Process failed." << endl;
     }
 }
+     
+
 
 void Student::view() {
     vector<vector<string>> data = readFile("student.txt");

@@ -50,6 +50,9 @@ int main()
     Grade g;
     string commands;
 
+    cout << "POKENOHE SCHOOL" << endl;
+    cout << "Student Management System" << endl;
+
     while (true) {
         cout << "-- ";
         getline(cin, commands);
@@ -92,7 +95,9 @@ int main()
         }
         else if (commands == "view report") {
             report_generation();
-
+        }
+        else {
+            cout << "Command not found." << endl;
         }
     }
 }

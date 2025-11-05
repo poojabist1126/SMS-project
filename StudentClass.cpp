@@ -12,6 +12,9 @@ void Student::add() {
 
     cout << "Address: ";
     getline(cin, address);
+  
+
+
 
     cout << "Contact: ";
     getline(cin, contact);

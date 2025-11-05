@@ -27,10 +27,14 @@
     <ClCompile Include="CourseClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GradeClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="student.txt" />
     <Text Include="course.txt" />
+    <Text Include="grade.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StudentClass.hpp">
@@ -40,6 +44,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CourseClass.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GradeClass.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -129,16 +129,19 @@
   <ItemGroup>
     <ClCompile Include="CourseClass.cpp" />
     <ClCompile Include="Functions.cpp" />
+    <ClCompile Include="GradeClass.cpp" />
     <ClCompile Include="SMS project.cpp" />
     <ClCompile Include="StudentClass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="course.txt" />
+    <Text Include="grade.txt" />
     <Text Include="student.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CourseClass.hpp" />
     <ClInclude Include="Functions.hpp" />
+    <ClInclude Include="GradeClass.hpp" />
     <ClInclude Include="StudentClass.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

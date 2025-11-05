@@ -49,8 +49,22 @@ void Grade::edit() {
     cout << "Enter student roll to edit: ";
     getline(cin, roll);
 
+    vector<vector<string>> data = readFile("student.txt", 2, roll);
+
+    if (data.size() <= 0) {
+        cout << "Student is not registered." << endl;
+        return;
+    }
+
     cout << "courseCode:";
     getline(cin, courseCode);
+
+    data = readFile("course.txt", 0, courseCode);
+
+    if (data.size() <= 0) {
+        cout << "Course is not registered." << endl;
+        return;
+    }
 
     cout << "Marks:";
     getline(cin, marks);

@@ -1,2 +1,4 @@
 Name|City|Roll|Contact
-bist|wellington|0b2i|0204343564
+pooja|auckland|0p2o|0226543
+ram|auckland|2r3a|2352352
+rohit|hamilton'|2r5o|25323532

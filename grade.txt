@@ -1,2 +1,6 @@
 Student roll|Course Code|Marks
-0b2i|ev|54
+0p2o|345|77
+0p2o|345|77
+2r5o|345|77
+2r5o|2523|78
+2r3a|243|88

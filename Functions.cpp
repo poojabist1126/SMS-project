@@ -109,7 +109,7 @@ bool deleteRowFile(
 
     for (const auto& row : data) {
         if (row.size() > matchColumnIndex && row[matchColumnIndex] == matchValue) {
-            found = true; // skip this row
+            found = true;
             continue;
         }
         updatedData.push_back(row);

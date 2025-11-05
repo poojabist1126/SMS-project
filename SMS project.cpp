@@ -14,7 +14,34 @@
 
 using namespace std;
 
+void report_generation() {
+    string roll;
+    cout << "Enter roll number: ";
+    getline(cin, roll);
 
+    vector<vector<string>> grade = readFile("grade.txt", 0, roll);
+    vector<vector<string>> student = readFile("student.txt", 2, roll);
+
+    if (student.size() == 0) {
+        cout << "Student is not registered." << endl;
+        return;
+    }
+
+    if (grade.size() == 0) {
+        cout << "Grade is not added." << endl;
+        return;
+    }
+
+    vector<vector<string>> course = readFile("course.txt", 0, grade[0][1]);
+
+    cout << "Pokeno South Primary School" << endl;
+    cout << "Report Certificate" << endl;
+    cout << "Name: " << student[0][0] << endl;
+    cout << "Adress: " << student[0][1] << endl;
+    cout << "Roll number: " << student[0][2] << endl;
+
+    printTable({ {"Course Name", "Grade"}, { course[0][1], grade[0][2] } });
+}
 
 int main()
 {
@@ -62,6 +89,10 @@ int main()
         }
         else if (commands == "del grade") {
             g.del();
+        }
+        else if (commands == "view report") {
+            report_generation();
+
         }
     }
 }
